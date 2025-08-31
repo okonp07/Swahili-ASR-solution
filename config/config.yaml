@@ -1,0 +1,23 @@
+seed: 42
+device: "cuda"
+data:
+  sample_rate: 16000
+  test_glob: "data/test/*.wav"
+  val_manifest: "data/splits/val_manifest.csv"
+
+model:
+  name: "small"
+  compute_type: "int8_float16"
+  language: "sw"
+
+decoding:
+  beam_size: 5
+  patience: 0.2
+  vad_filter: true
+  min_silence_ms: 200
+  condition_on_prev: false
+  temperature: 0.0
+
+submission:
+  output_csv: "artifacts/submission.csv"
+  normalize_for_submission: true 
